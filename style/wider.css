@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* ----------- コンテント ---------- */
+#partE section {
+  padding: 7vh 0 15.334575vmax 0.2vmax; }
+  #partE section article {
+    width: 21.9vmax;
+    height: 25.3383vmax;
+    margin-right: 0.1vmax;
+    margin-bottom: -6.134575vmax;
+    margin-left: 0.1vmax; }
+    #partE section article:nth-of-type(6n+1) {
+      margin-left: 0.1vmax; }
+    #partE section article:nth-of-type(8n+1) {
+      margin-left: 11.15vmax; }
+
+/*# sourceMappingURL=wider.css.map */
