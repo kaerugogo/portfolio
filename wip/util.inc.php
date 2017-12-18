@@ -1,0 +1,4 @@
+<?php
+h(){
+	return htmlspecialchars();
+}
