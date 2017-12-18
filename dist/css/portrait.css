@@ -65,10 +65,12 @@ nav {
     transform: translate3d(-23vw, 0, 0); }
   #swAbout:checked ~ nav #navAbout {
     transform: translate3d(-23vw, 0, 0) rotate3d(0, 0, 1, 12deg); }
+
 #swAbout:checked ~ #partA {
   transform: translate3d(0, -14vmax, 0) rotate3d(0, 0, 1, -12deg);
   border-right: none;
   border-bottom: 1px solid #fff; }
+
 #swAbout:checked ~ #partB {
   transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg);
   border-top: 1px solid #fff;
@@ -79,14 +81,17 @@ nav {
   transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg); }
   #swWorks:checked ~ nav li {
     transform: translate3d(35vw, 2em, 0) rotate3d(0, 0, 1, 12deg); }
+
 #swWorks:checked ~ #partA {
   transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg);
   border-right: none;
   border-bottom: 1px solid #fff; }
+
 #swWorks:checked ~ #partB {
   transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg);
   border-top: 1px solid #fff;
   border-left: none; }
+
 #swWorks:checked ~ #partE {
   transform: translate3d(75vw, 300vh, 0); }
 
@@ -95,10 +100,12 @@ nav {
   transform: rotate3d(0, 0, 1, 12deg); }
   #swContact:checked ~ nav li {
     transform: translate3d(4.6vmax, 2.5em, 0) rotate3d(0, 0, 1, -12deg); }
+
 #swContact:checked ~ #partA {
   transform: rotate3d(0, 0, 1, 12deg);
   border-right: none;
   border-bottom: 1px solid #fff; }
+
 #swContact:checked ~ #partB {
   transform: rotate3d(0, 0, 1, -78deg);
   border-left: none;
@@ -112,9 +119,11 @@ nav li {
 
 #partC section {
   margin: 8% 0; }
+
 #partD section {
   margin: 10% 0;
   padding-right: calc(30vw - 10vh); }
+
 #partE section article {
   width: 39vmin;
   height: 45.123vmin;
@@ -125,5 +134,3 @@ nav li {
     margin-left: 0.2vmin; }
   #partE section article:nth-of-type(4n+1) {
     margin-left: 19.9vmin; }
-
-/*# sourceMappingURL=portrait.css.map */

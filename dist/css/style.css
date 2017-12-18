@@ -179,7 +179,9 @@ nav {
   transition-property: transform height opacity z-index; }
 
 /* ----- いずれかのmenuが押されたとき ----- */
-#swAbout:checked ~ h1#toHome label:after, #swWorks:checked ~ h1#toHome label:after, #swContact:checked ~ h1#toHome label:after {
+#swAbout:checked ~ h1#toHome label:after,
+#swWorks:checked ~ h1#toHome label:after,
+#swContact:checked ~ h1#toHome label:after {
   opacity: 1;
   box-shadow: 0 0 5vmax rgba(0, 0, 0, 0.2); }
 
@@ -195,13 +197,16 @@ nav {
   #swAbout:checked ~ nav #navWorks,
   #swAbout:checked ~ nav #navContact {
     opacity: 0; }
+
 #swAbout:checked ~ #partA {
   transform: translate3d(-14vmax, 0, 0) rotate3d(0, 0, 1, 13deg);
   box-shadow: 0 0 5vmax rgba(0, 0, 0, 0.2);
   border-right: 1px solid #fff; }
+
 #swAbout:checked ~ #partB {
   transform: translate3d(85vmax, 0, 0) rotate3d(0, 0, 1, 13deg);
   border-left: 1px solid #fff; }
+
 #swAbout:checked ~ #partC {
   z-index: 9;
   opacity: 1; }
@@ -216,15 +221,18 @@ nav {
   #swWorks:checked ~ nav #navAbout,
   #swWorks:checked ~ nav #navContact {
     opacity: 0; }
+
 #swWorks:checked ~ #partA {
   transform: translate3d(85vmax, 0, 0) rotate3d(0, 0, 1, 13deg);
   background-color: #ff007f;
   border-right: 1px solid #fff;
   z-index: 999; }
+
 #swWorks:checked ~ #partB {
   transform: translate3d(85vmax, 0, 0) rotate3d(0, 0, 1, 13deg);
   border-left: 1px solid #fff;
   z-index: 9999; }
+
 #swWorks:checked ~ #partE {
   transform: translate3d(100vw, 100vh, 0);
   height: 100vh;
@@ -243,13 +251,16 @@ nav {
   #swContact:checked ~ nav #navAbout,
   #swContact:checked ~ nav #navWorks {
     opacity: 0; }
+
 #swContact:checked ~ #partA {
   transform: rotate3d(0, 0, 1, -12deg);
   box-shadow: 0 0 5vmax rgba(0, 0, 0, 0.2);
   border-right: 1px solid #fff; }
+
 #swContact:checked ~ #partB {
   transform: rotate3d(0, 0, 1, 78deg);
   border-left: 1px solid #fff; }
+
 #swContact:checked ~ #partD {
   z-index: 9;
   opacity: 1; }
@@ -311,5 +322,3 @@ section {
       background-color: #f6f6f6; }
       #partE section article:nth-of-type(6n+1) {
         margin-left: 14.4vmax; }
-
-/*# sourceMappingURL=style.css.map */
