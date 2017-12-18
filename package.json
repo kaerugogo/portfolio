@@ -1,0 +1,27 @@
+{
+  "name": "portoforio-git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaerugogo/portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/kaerugogo/portfolio/issues"
+  },
+  "homepage": "https://github.com/kaerugogo/portfolio#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "i": "^0.3.6"
+  }
+}

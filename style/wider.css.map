@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";AAEA,kCAAkC;AAClC,cAAe;EACd,OAAO,EAAE,2BAAwC;EACjD,sBAAQ;IACP,KAAK,EAAE,QAAQ;IACf,MAAM,EAAE,WAAgB;IACxB,YAAY,EAAE,OAAO;IACrB,aAAa,EAAE,aAAiC;IAChD,WAAW,EAAE,OAAO;IACpB,wCAAoB;MACnB,WAAW,EAAE,OAAO;IAErB,wCAAoB;MACnB,WAAW,EAAE,SAAoB",
-"sources": ["wider.scss"],
-"names": [],
-"file": "wider.css"
-}
