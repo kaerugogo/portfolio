@@ -318,6 +318,7 @@ section {
     padding: 7vh 0 17.099vmax 0.4vmax; }
     #partE section article {
       position: relative;
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
       float: left;
       width: 28vmax;
