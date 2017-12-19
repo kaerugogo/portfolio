@@ -1,4 +1,4 @@
 <?php
-h(){
-	return htmlspecialchars();
+function  h($strings) {
+	return htmlspecialchars($strings);
 }

@@ -6,9 +6,9 @@ require_once "util.inc.php";
 //---------------------
 // 変数の初期化
 //---------------------
-$name 	= "";
-$kana 	= "";
-$email 	= "";
+$name 	 = "";
+$kana 	 = "";
+$email 	 = "";
 $message = "";
 
 //---------------------
@@ -16,9 +16,9 @@ $message = "";
 //---------------------
 if (isset($_SESSION["conect"])) {
 	$contact = $_SESSION["contact"];
-	$name 	= $contact["name"];
-	$kana 	= $contact["kana"];
-	$email 	= $contact["email"];
+	$name 	 = $contact["name"];
+	$kana 	 = $contact["kana"];
+	$email 	 = $contact["email"];
 	$message = $contact["message"];
 }
 
@@ -29,9 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$isValidated = true;
 
 	// 入力データの取得
-	$name 	= $_POST["_name"];
-	$kana 	= $_POST["_kana"];
-	$email 	= $_POST["_email"];
+	$name 	 = $_POST["_name"];
+	$kana 	 = $_POST["_kana"];
+	$email 	 = $_POST["_email"];
 	$message = $_POST["_message"];
 
 	// 名前のバリデーション
@@ -69,9 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	// エラーが無ければ基礎画面へ移動
 	if ($isValidated == true) {
 		$contact = [
-			"name" 	 => $name,
-			"kana" 	 => $kana,
-			"email" 	 => $email,
+			"name" 	  => $name,
+			"kana" 	  => $kana,
+			"email"   => $email,
 			"message" => $message
 		];
 		$_SESSION["contact"] = $contact;
@@ -92,7 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
  	<link rel="stylesheet" type="text/css" href="css/portrait.css"
  media="screen and (orientation: portrait)">
 </head>
-<body class="preload">
+<body class="preload" id="contact">
+<main>
 	<p class="reqired">* 入力必須項目</p>
 	<form action="" method="post"  novalidate>
 		<p <?php if (isset($errorName)) echo 'class="error"'; ?>>
@@ -115,5 +116,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		</p>
 		<p><input type="submit" value="確認する"></p>
 	</form>
+</main>
 </body>
 </html>
