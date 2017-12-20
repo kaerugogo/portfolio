@@ -14,9 +14,11 @@ $(document).ready(function() {
 	});
 	// contactページを閉じる
 	$("#toHome").click(function(){
-		$("#divIframe").remove();
-		$("#h2Iframe").remove();
 		$("#outerIframe").removeClass("on");
+		setTimeout(function(){
+			$("#divIframe").remove();
+			$("#h2Iframe").remove();
+		},300);
 	});
 });
 

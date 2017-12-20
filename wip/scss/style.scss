@@ -8,6 +8,10 @@ $BgColorA: #ff007f;
 $BgColorC: #0080ff;
 $BgColorD: #60dd00;
 $navColor: #444;
+$bgButton: #444;
+$bgButtonDis: #777;
+$placeholder: #aaa;
+
 $serif: Georgia,游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
 $sansSerif: -apple-system,BlinkMacSystemFont,"Helvetica Neue","游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",メイリオ,Meiryo,sans-serif;
 
@@ -100,14 +104,12 @@ nav {
 	right: 50%;
 	bottom: 50%;
 	margin-bottom: -100vmax; // センター、基準位置
-	z-index: 99;
 	background-color: $baseBgColor;
 }
 #partC,
 #partD,
 #partE {
 	overflow: auto;
-	z-index: 0;
 	opacity: 0;
 }
 #partC,
@@ -130,7 +132,6 @@ nav {
 	left: -100vw;
 	width: 100vw;
 	height: 300vh;
-	z-index: 99;
 }
 nav {
 	right: 50%;
@@ -139,14 +140,12 @@ nav {
 	height: 200vmax;
 	margin-right: -50vmax + $offset;
 	margin-bottom: -100vmax;
-	z-index: 99999;
 	li {
 		position: absolute;
 		right: 0;
 		bottom: 100vmax;
 		width: 4em;
 		text-align: right;
-		z-index: 9999;
 	}
 	#navAbout {
 		margin-bottom: 20vh;
@@ -156,6 +155,22 @@ nav {
 	}
 	#navContact {
 		margin-bottom: -40vh;
+	}
+}
+/* ----------- 重なり順(z-index) ---------- */
+#partA,
+#partB {
+	z-index: 999;
+}
+#partC,
+#partD,
+#partE {
+	z-index: 9;
+}
+nav {
+	z-index: 99999;
+	li {
+		z-index: 9999;
 	}
 }
 
@@ -219,7 +234,7 @@ nav {
 	transition-property: transform height opacity z-index;
 }
 #outerIframe {
-	transition-property: opacity;
+	transition-property: opacity z-index;
 }
 
 /* ----- いずれかのmenuが押されたとき ----- */
@@ -259,7 +274,7 @@ h1#toHome label:after {
 		border-left: 1px solid $baseBgColor;
 	}
 	#partC {
-		z-index: 9;
+		z-index: 99;
 		opacity:1;
 	}
 }
@@ -282,11 +297,13 @@ h1#toHome label:after {
 		transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
 		background-color: $BgColorA;
 		border-right: 1px solid $baseBgColor;
-		z-index: 999;
+		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2)inset;
+		// z-index: 999;
 	}
 	#partB {
 		transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
 		border-left: 1px solid $baseBgColor;
+		box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
 		z-index: 9999;
 	}
 	#partE {
@@ -360,8 +377,9 @@ h1#toHome {
 		font-family: $sansSerif;
 		font-weight: bold;
 		font-size: 20px;
+		color: $baseColor;
 		text-shadow: none;
-		background-color: #eee;
+		background-color: $bgButton;
 		opacity: 0;
 	}
 }
@@ -411,33 +429,13 @@ section {
 	right: 0;
 	bottom: 0;
 	left: 0;
-  	// background-color: rgba(0, 0, 0, 0.8);
-  	// padding: 30px;
-  	z-index: -1;
-  	opacity: 0;
-  	// transition: .4s;
+
+  	z-index: 9;
   	&.on {
-  		z-index: 9;
-		opacity: 1;
+  		z-index: 99;
   	}
 }
 
-  // #outerIframe h2 {
-  //   max-width: 768px;
-  //   height: 28px;
-  //   margin: 0 auto;
-  //   padding-left: 5px;
-  //   background-color: #f1f1f1;
-  //   color: #4d4d4d;
-  //   font-size: 1.6rem; }
-  // #outerIframe #divIframe {
-  //   position: relative;
-  //   height: calc(100% - 28px);
-  //   max-width: 768px;
-  //   margin: 0 auto;
-  //   overflow: auto;
-  //   -webkit-overflow-scrolling: touch;
-  //   background-color: #ffffff; }
 #outerIframe #divIframe iframe {
    display: block;
    top: 0;
@@ -468,62 +466,86 @@ section {
 	}
 	.error span {
 		color: $BgColorA;
+		font-weight: bold;
+	}
+	input[type="radio"] {
+		margin: 0 2px;
+		border: 1px solid #ccc;
+	}
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		box-sizing: border-box;
+   	width: 100%;
+   	padding: 10px 5px;
+   	margin-bottom: 5px;
+   	font-size: 1.7rem;
+   	border: 1px solid #ccc;
+   	border-radius: 5px;
+   	box-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.1) inset;
+	}
+	input[type="text"]:focus,
+	input[type="email"]:focus,
+	textarea:focus {
+		border: 1px solid #bc1db1;
+	}
+	textarea {
+   	height: 16.2em;
+	}
+	input[type="submit"] {
+   	display: block;
+   	width: 50%;
+   	margin: 0 auto 15px;
+   	padding: 13px 0;
+   	background-color: $bgButton;
+   	color: $baseColor;
+   	border: none;
+   	border-radius: 5px;
+   	letter-spacing: 0.5em;
+   	font-size: 1.7rem;
+	}
+	.inquiry {
+		table {
+			margin-bottom: 3rem;
+		}
+		th {
+			min-width: 7em;
+			text-align: right;
+			font-size: 1.6rem;
+			line-height: 2.2;
+			padding: 0.3em 1em 0.3em 0;
+		}
+		td {
+			font-family: $sansSerif;
+			font-size: 2.2rem;
+			padding: 0.3em 0;
+			border-bottom: 1px solid $baseColor;
+		}
+		form p {
+			text-align: center;
+			input[name="back"] {
+				display: inline-block;
+				width: 15%;
+				margin: 0 10px 15px auto;
+				background-color: $bgButtonDis;
+				letter-spacing: 0.1em;
+			}
+			input[name="send"] {
+				display: inline-block;
+				width: 45%;
+				margin: 0 auto 15px 10px;
+			}
+		}
 	}
 }
-// #contact main dt {
-//    font-family: "Roboto Slab", Garamond, "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
-//    font-size: 1.5rem;
-//    line-height: 2;
-//  }
-//   #contact main dd {
-//     font-size: 1.7rem;
-//     margin-bottom: 1em;
-//  }
-  #contact main input[type="radio"] {
-    margin: 0 2px;
-    border: 1px solid #ccc; }
-  #contact main input[type="text"],
-  #contact main input[type="email"],
-  #contact main textarea {
-  	box-sizing: border-box;
-    width: 100%;
-    padding: 10px 5px;
-    margin-bottom: 5px;
-    font-size: 1.7rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.1) inset; }
-    #contact main input[type="text"]:focus,
-    #contact main input[type="email"]:focus,
-    #contact main textarea:focus {
-      border: 1px solid #bc1db1; }
-  #contact main textarea {
-    height: 16.2em; }
-  #contact main input[type="submit"] {
-    display: block;
-    width: 50%;
-    margin: 0 auto 15px;
-    padding: 13px 0;
-    background-color: #333333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    letter-spacing: 0.5em;
-    font-size: 1.7rem; }
 
-:placeholder-shown {
-  color: #aaa;
-  font-size: 1.5rem; }
-::-webkit-input-placeholder {
-  color: #aaa;
-  font-size: 1.5rem; }
-::-moz-placeholder {
-  color: #aaa;
-  opacity: 1;
-  font-size: 1.5rem; }
-:-ms-input-placeholder {
-  color: #aaa;
-  font-size: 1.5rem; }
+// :placeholder-shown,
+// ::-webkit-input-placeholder,
+// ::-moz-placeholder,
+// :-ms-input-placeholder {
+// 	color: $placeholder;
+// 	font-size: 1.5rem;
+// }
 
 @media screen and (min-width: 500px) {
   #contact main dl {

@@ -14,7 +14,7 @@ $message = "";
 //---------------------
 // セッション変数が登録されている場合は読み出す
 //---------------------
-if (isset($_SESSION["conect"])) {
+if (isset($_SESSION["contact"])) {
 	$contact = $_SESSION["contact"];
 	$name 	 = $contact["name"];
 	$kana 	 = $contact["kana"];
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		$errorEmail  = "メールアドレスを入力してください";
 		$isValidated = false;
 	}
-	elseif (!preg_match("/^[^@]+@[^@]+¥.[^@]+$", $email)) {
+	elseif (!preg_match("/^[^@]+@[^@]+\.[^@]+$/", $email)) {
 		$errorEmail  = "メールアドレスの形式が正しくありません";
 		$isValidated = false;
 	}
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			"message" => $message
 		];
 		$_SESSION["contact"] = $contact;
-		header("Location: contact_cpnf.php");
+		header("Location: contact_conf.php");
 		exit;
 	}
 }
@@ -85,14 +85,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta charset="UTF-8">
-	<title>Hirokazu Tsutsumi Portfolio</title>
+	<title>Contact | Hirokazu Tsutsumi Portfolio</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/wider.css"
  media="screen and (min-width: 1367px)">
  	<link rel="stylesheet" type="text/css" href="css/portrait.css"
  media="screen and (orientation: portrait)">
 </head>
-<body class="preload" id="contact">
+<body id="contact">
 <main>
 	<p class="reqired">* 入力必須項目</p>
 	<form action="" method="post"  novalidate>

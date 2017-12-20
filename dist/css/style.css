@@ -72,14 +72,12 @@ nav {
   right: 50%;
   bottom: 50%;
   margin-bottom: -100vmax;
-  z-index: 99;
   background-color: #fff; }
 
 #partC,
 #partD,
 #partE {
   overflow: auto;
-  z-index: 0;
   opacity: 0; }
 
 #partC,
@@ -101,8 +99,7 @@ nav {
   top: -100vh;
   left: -100vw;
   width: 100vw;
-  height: 300vh;
-  z-index: 99; }
+  height: 300vh; }
 
 nav {
   right: 50%;
@@ -110,21 +107,34 @@ nav {
   width: 3.5em;
   height: 200vmax;
   margin-right: 44.5vmax;
-  margin-bottom: -100vmax;
-  z-index: 99999; }
+  margin-bottom: -100vmax; }
   nav li {
     position: absolute;
     right: 0;
     bottom: 100vmax;
     width: 4em;
-    text-align: right;
-    z-index: 9999; }
+    text-align: right; }
   nav #navAbout {
     margin-bottom: 20vh; }
   nav #navWorks {
     margin-bottom: -10vh; }
   nav #navContact {
     margin-bottom: -40vh; }
+
+/* ----------- 重なり順(z-index) ---------- */
+#partA,
+#partB {
+  z-index: 999; }
+
+#partC,
+#partD,
+#partE {
+  z-index: 9; }
+
+nav {
+  z-index: 99999; }
+  nav li {
+    z-index: 9999; }
 
 /* ----------- 変形 ---------- */
 #partA,
@@ -181,7 +191,7 @@ nav {
   transition-property: transform height opacity z-index; }
 
 #outerIframe {
-  transition-property: opacity; }
+  transition-property: opacity z-index; }
 
 /* ----- いずれかのmenuが押されたとき ----- */
 #swAbout:checked ~ h1#toHome label:after,
@@ -213,7 +223,7 @@ nav {
   border-left: 1px solid #fff; }
 
 #swAbout:checked ~ #partC {
-  z-index: 9;
+  z-index: 99;
   opacity: 1; }
 
 /* ----- Worksが押されたとき ----- */
@@ -230,12 +240,12 @@ nav {
 #swWorks:checked ~ #partA {
   transform: translate3d(85vmax, 0, 0) rotate3d(0, 0, 1, 13deg);
   background-color: #ff007f;
-  border-right: 1px solid #fff;
-  z-index: 999; }
+  border-right: 1px solid #fff; }
 
 #swWorks:checked ~ #partB {
   transform: translate3d(85vmax, 0, 0) rotate3d(0, 0, 1, 13deg);
   border-left: 1px solid #fff;
+  box-shadow: 0 0 5vmax rgba(0, 0, 0, 0.2);
   z-index: 9999; }
 
 #swWorks:checked ~ #partE {
@@ -297,8 +307,9 @@ h1#toHome {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "游ゴシック Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
     font-weight: bold;
     font-size: 20px;
+    color: #fff;
     text-shadow: none;
-    background-color: #eee;
+    background-color: #444;
     opacity: 0; }
 
 #partC {
@@ -337,11 +348,9 @@ section {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  opacity: 0; }
+  z-index: 9; }
   #outerIframe.on {
-    z-index: 9;
-    opacity: 1; }
+    z-index: 99; }
 
 #outerIframe #divIframe iframe {
   display: block;
@@ -368,60 +377,64 @@ section {
     font-size: 1.7rem;
     margin-bottom: 1.8rem; }
   #contact main .error span {
-    color: #ff007f; }
-
-#contact main input[type="radio"] {
-  margin: 0 2px;
-  border: 1px solid #ccc; }
-
-#contact main input[type="text"],
-#contact main input[type="email"],
-#contact main textarea {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 10px 5px;
-  margin-bottom: 5px;
-  font-size: 1.7rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.1) inset; }
-
-#contact main input[type="text"]:focus,
-#contact main input[type="email"]:focus,
-#contact main textarea:focus {
-  border: 1px solid #bc1db1; }
-
-#contact main textarea {
-  height: 16.2em; }
-
-#contact main input[type="submit"] {
-  display: block;
-  width: 50%;
-  margin: 0 auto 15px;
-  padding: 13px 0;
-  background-color: #333333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  letter-spacing: 0.5em;
-  font-size: 1.7rem; }
-
-:placeholder-shown {
-  color: #aaa;
-  font-size: 1.5rem; }
-
-::-webkit-input-placeholder {
-  color: #aaa;
-  font-size: 1.5rem; }
-
-::-moz-placeholder {
-  color: #aaa;
-  opacity: 1;
-  font-size: 1.5rem; }
-
-:-ms-input-placeholder {
-  color: #aaa;
-  font-size: 1.5rem; }
+    color: #ff007f;
+    font-weight: bold; }
+  #contact main input[type="radio"] {
+    margin: 0 2px;
+    border: 1px solid #ccc; }
+  #contact main input[type="text"],
+  #contact main input[type="email"],
+  #contact main textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 5px;
+    margin-bottom: 5px;
+    font-size: 1.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.1) inset; }
+  #contact main input[type="text"]:focus,
+  #contact main input[type="email"]:focus,
+  #contact main textarea:focus {
+    border: 1px solid #bc1db1; }
+  #contact main textarea {
+    height: 16.2em; }
+  #contact main input[type="submit"] {
+    display: block;
+    width: 50%;
+    margin: 0 auto 15px;
+    padding: 13px 0;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.5em;
+    font-size: 1.7rem; }
+  #contact main .inquiry table {
+    margin-bottom: 3rem; }
+  #contact main .inquiry th {
+    min-width: 7em;
+    text-align: right;
+    font-size: 1.6rem;
+    line-height: 2.2;
+    padding: 0.3em 1em 0.3em 0; }
+  #contact main .inquiry td {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "游ゴシック Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+    font-size: 2.2rem;
+    padding: 0.3em 0;
+    border-bottom: 1px solid #fff; }
+  #contact main .inquiry form p {
+    text-align: center; }
+    #contact main .inquiry form p input[name="back"] {
+      display: inline-block;
+      width: 15%;
+      margin: 0 10px 15px auto;
+      background-color: #777;
+      letter-spacing: 0.1em; }
+    #contact main .inquiry form p input[name="send"] {
+      display: inline-block;
+      width: 45%;
+      margin: 0 auto 15px 10px; }
 
 @media screen and (min-width: 500px) {
   #contact main dl {

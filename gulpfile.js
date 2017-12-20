@@ -15,6 +15,18 @@ gulp.task('copy', function(){
 	.pipe(bs.stream());
 });
 
+gulp.task('copyJs', function(){
+	return gulp.src([source + '/**/*.js'])
+	.pipe(gulp.dest(target))
+	.pipe(bs.stream());
+});
+
+gulp.task('copyPhp', function(){
+	return gulp.src([source + '/**/*.php'])
+	.pipe(gulp.dest(target))
+	.pipe(bs.stream());
+});
+
 gulp.task('sass_compile', function(){
 	return gulp.src([source + '/scss/**/*.scss'])
 	.pipe(plumber())
@@ -24,12 +36,14 @@ gulp.task('sass_compile', function(){
 });
 
 // watch task
-gulp.task('default',['copy', 'sass_compile'], function(){
+gulp.task('default',['copy', 'copyJs', 'copyPhp', 'sass_compile'], function(){
 	bs.init({
 		server: {
 			baseDir: target
 		}
 	});
 	gulp.watch([source + '/**/*.html'], ['copy']);
+	gulp.watch([source + '/**/*.js'], ['copyJs']);
+	gulp.watch([source + '/**/*.php'], ['copyPhp']);
 	gulp.watch([source + '/scss/**/*.scss'], ['sass_compile']);
 });
