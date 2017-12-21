@@ -5,9 +5,8 @@ $(document).ready(function() {
 		$("#swContact").prop('checked', true);
 		$("#outerIframe").addClass("on");
 		$("#divIframe").remove();
-		$("#h2Iframe").remove();
 		$("#outerIframe").prepend(
-			"<h2 id='h2Iframe'>Contact</h2><div id='divIframe'><iframe src='contact.php'></iframe></div>"
+			"<div id='divIframe'><iframe src='contact.php'></iframe></div>"
 			);
 		return false;
 
@@ -17,7 +16,6 @@ $(document).ready(function() {
 		$("#outerIframe").removeClass("on");
 		setTimeout(function(){
 			$("#divIframe").remove();
-			$("#h2Iframe").remove();
 		},300);
 	});
 });

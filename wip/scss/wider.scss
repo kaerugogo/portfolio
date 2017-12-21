@@ -1,20 +1,32 @@
 @charset "UTF-8";
 
+$hexWidth: 21.7vw;
+
 /* ----------- コンテント ---------- */
 #partE section {
-	padding: 7vh 0 (21.9vmax * 1.157 / 4 + 9) 0.2vmax;
+	padding: 7vh 0 ($hexWidth * 1.157 / 4 + 9) 0.2vw;
 	article {
-		width: 21.9vmax;
-		height: 21.9vmax * 1.157;
-		margin-right: 0.1vmax;
-		margin-bottom: -1 * (21.9vmax * 1.157 / 4) + 0.2;
-		margin-left: 0.1vmax;
+		width: $hexWidth;
+		height: $hexWidth * 1.157;
+		margin-right: 0.1vw;
+		margin-bottom: -1 * ($hexWidth * 1.157 / 4) + 0.2;
+		margin-left: 0.1vw;
 		&:nth-of-type(6n+1) {
-			margin-left: 0.1vmax;
+			margin-left: 0.1vw;
 		}
 		&:nth-of-type(8n+1) {
-			margin-left: (21.9vmax / 2 + 0.2);
+			margin-left: ($hexWidth / 2 + 0.2);
 		}
 	}
 }
-
+// - ie
+@media all and (-ms-high-contrast: none) {
+	#partE section article {
+		margin-bottom: 0.3vw;
+	}
+}
+@supports (-ms-ime-align:auto) {
+	#partE section article {
+		margin-bottom: 0.3vw;
+	}
+}

@@ -2,15 +2,17 @@
 /* ----------- レイアウト ---------- */
 #partA,
 #partB {
-  margin-right: -100vmax;
+  width: 200vh;
+  height: 200vh;
+  margin-right: -100vh;
   border: none; }
 
 #partA {
-  margin-bottom: 44.5vmax;
+  margin-bottom: 44.5vh;
   border-bottom: 1px solid #bbb; }
 
 #partB {
-  margin-bottom: -155.5vmax;
+  margin-bottom: -155.5vh;
   border-top: 1px solid #bbb; }
 
 #partE {
@@ -19,12 +21,12 @@
   height: 300vh; }
 
 nav {
-  width: 200vmax;
+  width: 200vh;
   height: 2em;
-  margin-right: -100vmax;
-  margin-bottom: 44.5vmax; }
+  margin-right: -100vh;
+  margin-bottom: 44.5vh; }
   nav li {
-    right: 100vmax;
+    right: 100vh;
     bottom: 0; }
   nav #navAbout,
   nav #navWorks,
@@ -58,39 +60,47 @@ nav {
     transform: rotate3d(0, 0, 1, 12deg); }
 
 /* ----------- トランジション・アニメーション ---------- */
+/* ----- いずれかのmenuが押されたとき ----- */
+#swAbout:checked ~ h1#toHome label:after,
+#swWorks:checked ~ h1#toHome label:after,
+#swContact:checked ~ h1#toHome label:after {
+  box-shadow: 0 0 5vh rgba(0, 0, 0, 0.2); }
+
 /* ----- Aboutが押されたとき ----- */
 #swAbout:checked ~ nav {
-  transform: translate3d(0, -14vmax, 0) rotate3d(0, 0, 1, -12deg); }
+  transform: translate3d(0, -14vh, 0) rotate3d(0, 0, 1, -12deg); }
   #swAbout:checked ~ nav li {
     transform: translate3d(-23vw, 0, 0); }
   #swAbout:checked ~ nav #navAbout {
     transform: translate3d(-23vw, 0, 0) rotate3d(0, 0, 1, 12deg); }
 
 #swAbout:checked ~ #partA {
-  transform: translate3d(0, -14vmax, 0) rotate3d(0, 0, 1, -12deg);
+  transform: translate3d(0, -14vh, 0) rotate3d(0, 0, 1, -12deg);
+  box-shadow: 0 0 5vh rgba(0, 0, 0, 0.2);
   border-right: none;
   border-bottom: 1px solid #fff; }
 
 #swAbout:checked ~ #partB {
-  transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg);
+  transform: translate3d(0, 85vh, 0) rotate3d(0, 0, 1, -12deg);
   border-top: 1px solid #fff;
   border-left: none; }
 
 /* ----- Worksが押されたとき ----- */
 #swWorks:checked ~ nav {
-  transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg); }
+  transform: translate3d(0, 85vh, 0) rotate3d(0, 0, 1, -12deg); }
   #swWorks:checked ~ nav li {
     transform: translate3d(35vw, 2em, 0) rotate3d(0, 0, 1, 12deg); }
 
 #swWorks:checked ~ #partA {
-  transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg);
+  transform: translate3d(0, 85vh, 0) rotate3d(0, 0, 1, -12deg);
   border-right: none;
   border-bottom: 1px solid #fff; }
 
 #swWorks:checked ~ #partB {
-  transform: translate3d(0, 85vmax, 0) rotate3d(0, 0, 1, -12deg);
+  transform: translate3d(0, 85vh, 0) rotate3d(0, 0, 1, -12deg);
   border-top: 1px solid #fff;
-  border-left: none; }
+  border-left: none;
+  box-shadow: 0 0 5vh rgba(0, 0, 0, 0.2); }
 
 #swWorks:checked ~ #partE {
   transform: translate3d(75vw, 300vh, 0); }
@@ -99,15 +109,17 @@ nav {
 #swContact:checked ~ nav {
   transform: rotate3d(0, 0, 1, 12deg); }
   #swContact:checked ~ nav li {
-    transform: translate3d(4.6vmax, 2.5em, 0) rotate3d(0, 0, 1, -12deg); }
+    transform: translate3d(4.6vh, 2.5em, 0) rotate3d(0, 0, 1, -12deg); }
 
 #swContact:checked ~ #partA {
   transform: rotate3d(0, 0, 1, 12deg);
+  box-shadow: 0 0 5vh rgba(0, 0, 0, 0.2);
   border-right: none;
   border-bottom: 1px solid #fff; }
 
 #swContact:checked ~ #partB {
   transform: rotate3d(0, 0, 1, -78deg);
+  box-shadow: 0 0 3vh rgba(0, 0, 0, 0.2);
   border-left: none;
   border-top: 1px solid #fff; }
 
@@ -124,13 +136,23 @@ nav li {
   margin: 10% 0;
   padding-right: calc(30vw - 10vh); }
 
-#partE section article {
-  width: 39vmin;
-  height: 45.123vmin;
-  margin-right: 0.2vmin;
-  margin-bottom: -10.88075vmin;
-  margin-left: 0.2vmin; }
-  #partE section article:nth-of-type(6n+1) {
-    margin-left: 0.2vmin; }
-  #partE section article:nth-of-type(4n+1) {
-    margin-left: 19.9vmin; }
+#partE section {
+  padding: 7vh 0 17.099vh 0.4vh; }
+  #partE section article {
+    width: 38vw;
+    height: 43.966vw;
+    margin-right: 0.2vw;
+    margin-bottom: -10.5915vw;
+    margin-left: 0.2vw; }
+    #partE section article:nth-of-type(6n+1) {
+      margin-left: 0.2vw; }
+    #partE section article:nth-of-type(4n+1) {
+      margin-left: 19.4vw; }
+
+@media all and (-ms-high-contrast: none) {
+  #partE section article {
+    margin-bottom: 0.3vw; } }
+
+@supports (-ms-ime-align: auto) {
+  #partE section article {
+    margin-bottom: 0.3vw; } }

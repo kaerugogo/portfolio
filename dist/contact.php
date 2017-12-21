@@ -86,11 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta charset="UTF-8">
 	<title>Contact | Hirokazu Tsutsumi Portfolio</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/wider.css"
- media="screen and (min-width: 1367px)">
- 	<link rel="stylesheet" type="text/css" href="css/portrait.css"
- media="screen and (orientation: portrait)">
+	<?php css(); ?>
 </head>
 <body id="contact">
 <main>

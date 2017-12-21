@@ -1,14 +1,22 @@
 @charset "UTF-8";
 /* ----------- コンテント ---------- */
 #partE section {
-  padding: 7vh 0 15.33458vmax 0.2vmax; }
+  padding: 7vh 0 15.27672vw 0.2vw; }
   #partE section article {
-    width: 21.9vmax;
-    height: 25.3383vmax;
-    margin-right: 0.1vmax;
-    margin-bottom: -6.13457vmax;
-    margin-left: 0.1vmax; }
+    width: 21.7vw;
+    height: 25.1069vw;
+    margin-right: 0.1vw;
+    margin-bottom: -6.07672vw;
+    margin-left: 0.1vw; }
     #partE section article:nth-of-type(6n+1) {
-      margin-left: 0.1vmax; }
+      margin-left: 0.1vw; }
     #partE section article:nth-of-type(8n+1) {
-      margin-left: 11.15vmax; }
+      margin-left: 11.05vw; }
+
+@media all and (-ms-high-contrast: none) {
+  #partE section article {
+    margin-bottom: 0.3vw; } }
+
+@supports (-ms-ime-align: auto) {
+  #partE section article {
+    margin-bottom: 0.3vw; } }

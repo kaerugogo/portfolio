@@ -1,14 +1,13 @@
+<?php
+require_once "util.inc.php";
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta charset="UTF-8">
 	<title>Hirokazu Tsutsumi Portfolio</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/wider.css"
- media="screen and (min-width: 1367px)">
- 	<link rel="stylesheet" type="text/css" href="css/portrait.css"
- media="screen and (orientation: portrait)">
+	<?php css(); ?>
 </head>
 <body class="preload">
 <div id="wraper">
@@ -85,7 +84,6 @@
 	
 </div>
 <div id='outerIframe' class="">
-	<span class="closer">×</span>
 </div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/util.js" type="text/javascript"></script>	

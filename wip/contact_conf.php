@@ -103,11 +103,7 @@ if (isset($_POST["back"])) {
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta charset="UTF-8">
 	<title>Contact | Hirokazu Tsutsumi Portfolio</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/wider.css"
- media="screen and (min-width: 1367px)">
- 	<link rel="stylesheet" type="text/css" href="css/portrait.css"
- media="screen and (orientation: portrait)">
+	<?php css(); ?>
 </head>
 <body id="contact">
     <main>
@@ -116,24 +112,16 @@ if (isset($_POST["back"])) {
             <p>お問い合わせ内容をご確認いただき、よろしければ「送信」してください。近日中に返信いたします。</p>
         </section>
         <section class="inquiry">
-            <table>
-                <tr>
-                <th>名前</th>
-                <td><?php echo h($name); ?></td>
-                </tr>
-                <tr>
-                <th>フリガナ</th>
-                <td><?php echo h($kana); ?></td>
-                </tr>
-                <tr>
-                <th>メールアドレス</th>
-                <td><?php echo h($email); ?></td>
-                </tr>
-                <tr>
-                <th>内容</th>
-                <td><?php echo nl2br(h($message)); ?></td>
-                </tr>
-            </table>
+            <dl>
+                <dt>名前</dt>
+                <dd><?php echo h($name); ?></dd>
+                <dt>フリガナ</dt>
+                <dd><?php echo h($kana); ?></dd>
+                <dt>メールアドレス</dt>
+                <dd><?php echo h($email); ?></dd>
+                <dt>内容</dt>
+                <dd><?php echo nl2br(h($message)); ?></dd>
+            </dl>
             <form action="" method="post">
                 <p>
                     <input type="submit" name="back" value="修正する">

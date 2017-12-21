@@ -1,12 +1,15 @@
 @charset "UTF-8";
 
-$rotate: 13deg;
 $offset: 94.5;
+$rotate: 13deg;
+$hexWidth: 27.5vw;
 $baseColor: #fff;
+$baseColorDark: #161616;
 $baseBgColor: #fff;
 $BgColorA: #ff007f;
 $BgColorC: #0080ff;
-$BgColorD: #60dd00;
+// $BgColorD: #60dd00;
+$BgColorD: #ffC000;
 $navColor: #444;
 $bgButton: #444;
 $bgButtonDis: #777;
@@ -14,6 +17,7 @@ $placeholder: #aaa;
 
 $serif: Georgia,游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
 $sansSerif: -apple-system,BlinkMacSystemFont,"Helvetica Neue","游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",メイリオ,Meiryo,sans-serif;
+$sansRounded: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
 
 @mixin textGlow($shading:1px, $color:$baseColor) {
 	text-shadow:
@@ -25,6 +29,12 @@ $sansSerif: -apple-system,BlinkMacSystemFont,"Helvetica Neue","游ゴシック M
 		2px	 -2px $shading	$color,
 		-2px 2px  $shading	$color,
 		-2px -2px $shading	$color;
+}
+@mixin fitSize($top:0, $right:0, $bottom:0, $left:0) {
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
 }
 
 /* ----------- Chromeのtransitionバグ対策 ---------- */
@@ -55,9 +65,22 @@ html {
 	line-height: 1.5;
 	color: $baseColor;
 }
+/* iPad以上のフォントサイズ */
+@media screen and (min-width: 768px) and (orientation: portrait), 
+ screen and (min-width: 1024px) and (orientation: landscape) {
+	html {
+		font-size: 15px;
+	}
+}
+
 h1 {
 	font-size: 1.4rem;
 	color: $navColor;
+}
+h2 {
+	font-family: $sansSerif;
+	font-size: 2rem;
+	margin-bottom: 1.5em;
 }
 nav {
 	font-size: 1.3rem;
@@ -99,11 +122,12 @@ nav {
 }
 #partA,
 #partB {
-	width: 200vmax;
-	height: 200vmax;
+	width: 200vw;
+	height: 200vw;
 	right: 50%;
 	bottom: 50%;
-	margin-bottom: -100vmax; // センター、基準位置
+	margin-bottom: -100vw;
+	// margin-bottom: -100vmax; // センター、基準位置
 	background-color: $baseBgColor;
 }
 #partC,
@@ -114,17 +138,16 @@ nav {
 }
 #partC,
 #partD {
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	@include fitSize();
 }
 #partA {
-	margin-right: -50vmax + $offset;
+	margin-right: -50vw + $offset; //ie
+	// margin-right: -50vmax + $offset;
 	border-right: 1px solid #bbb;
 }
 #partB {
-	margin-right: -250vmax + $offset;
+	margin-right: -250vw + $offset; //ie
+	// margin-right: -250vmax + $offset;
 	border-left: 1px solid #bbb;
 }
 #partE {
@@ -137,13 +160,17 @@ nav {
 	right: 50%;
 	bottom: 50%;
 	width: 3.5em;
-	height: 200vmax;
-	margin-right: -50vmax + $offset;
-	margin-bottom: -100vmax;
+	height: 200vw; //ie
+	// height: 200vmax;
+	margin-right: -50vw + $offset; //ie
+	// margin-right: -50vmax + $offset;
+	margin-bottom: -100vw; //ie
+	// margin-bottom: -100vmax;
 	li {
 		position: absolute;
 		right: 0;
-		bottom: 100vmax;
+		bottom: 100vw; //ie
+		// bottom: 100vmax;
 		width: 4em;
 		text-align: right;
 	}
@@ -217,24 +244,24 @@ h1#toHome label::after {
 nav {
 	transition-property: transform;
 	li {
-		transition-property: opacity transform;
+		transition-property: opacity, transform;
 	}
 }
 #partA {
-	transition-property: transform background-color border-right box-shadow;
+	transition-property: transform, background-color, border-right, box-shadow;
 }
 #partB {
-	transition-property: transform border-left box-shadow;
+	transition-property: transform, border-left, box-shadow;
 }
 #partC,
 #partD {
-	transition-property: z-index opacity;
+	transition-property: z-index, opacity;
 }
 #partE {
-	transition-property: transform height opacity z-index;
+	transition-property: transform, height opacity, z-index;
 }
 #outerIframe {
-	transition-property: opacity z-index;
+	transition-property: opacity, z-index;
 }
 
 /* ----- いずれかのmenuが押されたとき ----- */
@@ -243,13 +270,15 @@ h1#toHome label:after {
 	#swWorks:checked ~ &,
 	#swContact:checked ~ & {
 		opacity: 1;
-		box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
+		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
 	}
 }
 /* ----- Aboutが押されたとき ----- */
 #swAbout:checked ~ {
 	nav {
-		transform: translate3d(-14vmax, 0, 0) rotate3d(0,0,1,$rotate);
+		transform: translate3d(-14vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
+		// transform: translate3d(-14vmax, 0, 0) rotate3d(0,0,1,$rotate);
 		li {
 			transform: translate3d(0, -23vh, 0);
 		}
@@ -265,12 +294,15 @@ h1#toHome label:after {
 		}
 	}
 	#partA {
-		transform: translate3d(-14vmax, 0, 0) rotate3d(0,0,1,$rotate);
-		box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		transform: translate3d(-14vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
+		// transform: translate3d(-14vmax, 0, 0) rotate3d(0,0,1,$rotate);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
+		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
 		border-right: 1px solid $baseBgColor;
 	}
 	#partB {
-		transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1,$rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
+		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1,$rotate);
 		border-left: 1px solid $baseBgColor;
 	}
 	#partC {
@@ -281,7 +313,8 @@ h1#toHome label:after {
 /* ----- Worksが押されたとき ----- */
 #swWorks:checked ~ {
 	nav {
-		transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1,$rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
+		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1,$rotate);
 		li {
 			transform: translate3d(3.5em, 35vh, 0) rotate3d(0,0,1,-$rotate);
 		}
@@ -294,16 +327,19 @@ h1#toHome label:after {
 		}
 	}
 	#partA {
-		transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1, $rotate); //ie
+		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
 		background-color: $BgColorA;
 		border-right: 1px solid $baseBgColor;
 		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2)inset;
 		// z-index: 999;
 	}
 	#partB {
-		transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1, $rotate); //ie
+		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
 		border-left: 1px solid $baseBgColor;
-		box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
+		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
 		z-index: 9999;
 	}
 	#partE {
@@ -318,7 +354,8 @@ h1#toHome label:after {
 	nav {
 		transform: rotate3d(0,0,1, -12deg);
 		li {
-			transform: translate3d(2.5em, 6vmax, 0) rotate3d(0,0,1, 12deg);
+			transform: translate3d(2.5em, 6vw, 0) rotate3d(0,0,1, 12deg); //ie
+			// transform: translate3d(2.5em, 6vmax, 0) rotate3d(0,0,1, 12deg);
 		}
 		#navContact {
 			@include textGlow;
@@ -333,12 +370,14 @@ h1#toHome label:after {
 	}
 	#partA {
 		transform: rotate3d(0,0,1, -12deg);
-		box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
+		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
 		border-right: 1px solid $baseBgColor;
 	}
 	#partB {
 		transform: rotate3d(0,0,1, 78deg);
-		box-shadow: 0 0 3vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 3vw rgba(0,0,0,0.2); //ie
+		// box-shadow: 0 0 3vmax rgba(0,0,0,0.2);
 		border-left: 1px solid $baseBgColor;
 	}
 	#partD {
@@ -399,24 +438,35 @@ section {
 		margin: 0 10%;
 	}
 	#partE & {
-		padding: 7vh 0 (28vmax * 1.157 / 4 + 9) 0.4vmax;
+		padding: 7vh 0 ($hexWidth * 1.157 / 4 + 9) 0.2vw;
 		article {
 			position: relative;
 			-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 			clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 			float: left;
-			width: 28vmax;
-			height: 28vmax * 1.157;
-			margin-right: 0.2vmax;
-			margin-bottom: -1 * (28vmax * 1.157 / 4) + 0.4;
-			margin-left: 0.2vmax;
+			width: $hexWidth;
+			height: $hexWidth * 1.157;
+			margin-right: 0.2vw;
+			margin-bottom: -1 * ($hexWidth * 1.157 / 4) + 0.4;
+			margin-left: 0.2vw;
 
 			background-color: #f6f6f6;
 
 			&:nth-of-type(6n+1) {
-				margin-left: (28vmax / 2 + 0.4);
+				margin-left: ($hexWidth / 2 + 0.4);
 			}
 		}
+	}
+}
+// - ie
+@media all and (-ms-high-contrast: none) {
+	#partE section article {
+		margin-bottom: 0.3vw;
+	}
+}
+@supports (-ms-ime-align:auto) {
+	#partE section article {
+		margin-bottom: 0.3vw;
 	}
 }
 
@@ -425,146 +475,116 @@ section {
 
 #outerIframe {
 	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-
+	@include fitSize();
   	z-index: 9;
   	&.on {
   		z-index: 99;
   	}
-}
-
-#outerIframe #divIframe iframe {
-   display: block;
-   top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-   // height: 100%;
-   height: 100vh;
-   min-height: 100%;
-   max-height: 100%;
-   // width: 100%;
-   width: 100vw;
-   min-width: 100%;
-   max-width: 100%;
-   border: none;
-   overflow: auto;
+  	#divIframe {
+  		position: absolute;
+  		@include fitSize();
+  		iframe {
+		   display: block;
+		   @include fitSize();
+		   height: 100vh;
+		   min-height: 100%;
+		   max-height: 100%;
+		   width: 100vw;
+		   min-width: 100%;
+		   max-width: 100%;
+		   border: none;
+		   overflow: auto;
+		}
+  	}
 }
 
 /* ---------- contactページ ---------- */
 #contact {
+	max-width: 800px;
+   margin: 0 auto;
 	overflow: auto;
-}
-#contact main {
-	padding: 50px 20px 100px;
-	p {
-		font-size: 1.7rem;
-		margin-bottom: 1.8rem;	
-	}
-	.error span {
-		color: $BgColorA;
-		font-weight: bold;
-	}
-	input[type="radio"] {
-		margin: 0 2px;
-		border: 1px solid #ccc;
-	}
-	input[type="text"],
-	input[type="email"],
-	textarea {
-		box-sizing: border-box;
-   	width: 100%;
-   	padding: 10px 5px;
-   	margin-bottom: 5px;
-   	font-size: 1.7rem;
-   	border: 1px solid #ccc;
-   	border-radius: 5px;
-   	box-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.1) inset;
-	}
-	input[type="text"]:focus,
-	input[type="email"]:focus,
-	textarea:focus {
-		border: 1px solid #bc1db1;
-	}
-	textarea {
-   	height: 16.2em;
-	}
-	input[type="submit"] {
-   	display: block;
-   	width: 50%;
-   	margin: 0 auto 15px;
-   	padding: 13px 0;
-   	background-color: $bgButton;
-   	color: $baseColor;
-   	border: none;
-   	border-radius: 5px;
-   	letter-spacing: 0.5em;
-   	font-size: 1.7rem;
-	}
-	.inquiry {
-		table {
-			margin-bottom: 3rem;
+	color: $baseColorDark;
+	main {
+		padding: 50px 20px 100px;
+		section {
+			padding-bottom: 0;
 		}
-		th {
-			min-width: 7em;
-			text-align: right;
-			font-size: 1.6rem;
-			line-height: 2.2;
-			padding: 0.3em 1em 0.3em 0;
+		p {
+			font-size: 1.7rem;
+			margin-bottom: 1.8rem;	
 		}
-		td {
+		.error span {
+			color: #1a237e;
 			font-family: $sansSerif;
-			font-size: 2.2rem;
-			padding: 0.3em 0;
-			border-bottom: 1px solid $baseColor;
+			font-weight: bold;
 		}
-		form p {
-			text-align: center;
-			input[name="back"] {
-				display: inline-block;
-				width: 15%;
-				margin: 0 10px 15px auto;
-				background-color: $bgButtonDis;
-				letter-spacing: 0.1em;
+		input[type="radio"] {
+			margin: 0 2px;
+			border: 1px solid #ccc;
+		}
+		input[type="text"],
+		input[type="email"],
+		textarea {
+			box-sizing: border-box;
+	   	width: 100%;
+	   	padding: 10px 5px;
+	   	margin-bottom: 5px;
+	   	font-family: $sansRounded;
+	   	font-size: 1.7rem;
+	   	border: 1px solid #ccc;
+	   	border-radius: 5px;
+	   	box-shadow: 1px 1.5px 2px rgba(0, 0, 0, 0.1) inset;
+		}
+		input[type="text"]:focus,
+		input[type="email"]:focus,
+		textarea:focus {
+			border: 1px solid #bc1db1;
+		}
+		textarea {
+	   	height: 16.2em;
+		}
+		input[type="submit"] {
+	   	display: block;
+	   	width: 50%;
+	   	margin: 0 auto 15px;
+	   	padding: 13px 0;
+	   	background-color: $bgButton;
+	   	color: $baseColor;
+	   	border: none;
+	   	border-radius: 5px;
+	   	letter-spacing: 0.5em;
+	   	font-size: 1.7rem;
+		}
+		.inquiry {
+			dl {
+				margin-bottom: 3rem;
+				overflow: hidden;
 			}
-			input[name="send"] {
-				display: inline-block;
-				width: 45%;
-				margin: 0 auto 15px 10px;
+			dt {
+				font-size: 1.6rem;
+			}
+			dd {
+				margin-bottom: 0.5em;
+				padding-bottom: 0.5em;
+				font-family: $sansRounded;
+				font-size: 2.2rem;
+				border-bottom: 1px solid rgba(255,255,255,0.5);
+			}
+			form p {
+				text-align: center;
+				input[name="back"] {
+					display: inline-block;
+					width: 15%;
+					margin: 0 10px 15px auto;
+					background-color: $bgButtonDis;
+					letter-spacing: 0.1em;
+				}
+				input[name="send"] {
+					display: inline-block;
+					width: 45%;
+					margin: 0 auto 15px 10px;
+				}
 			}
 		}
 	}
 }
-
-// :placeholder-shown,
-// ::-webkit-input-placeholder,
-// ::-moz-placeholder,
-// :-ms-input-placeholder {
-// 	color: $placeholder;
-// 	font-size: 1.5rem;
-// }
-
-@media screen and (min-width: 500px) {
-  #contact main dl {
-    overflow: hidden; }
-  #contact main dt,
-  #contact main dd {
-    width: 50%; }
-    #contact main dt:nth-of-type(2n+1),
-    #contact main dd:nth-of-type(2n+1) {
-      float: left;
-      clear: left; }
-    #contact main dt:nth-last-of-type(1),
-    #contact main dd:nth-last-of-type(1) {
-      clear: both;
-      width: 100%; }
-  #contact main dt:nth-of-type(2n) {
-    float: right;
-    margin-top: -2em; }
-  #contact main dd:nth-of-type(2n) {
-    float: right; }
-  #contact main textarea {
-    height: 8.1em; } }
