@@ -141,13 +141,11 @@ nav {
 	@include fitSize();
 }
 #partA {
-	margin-right: -50vw + $offset; //ie
-	// margin-right: -50vmax + $offset;
+	margin-right: -50vw + $offset;
 	border-right: 1px solid #bbb;
 }
 #partB {
-	margin-right: -250vw + $offset; //ie
-	// margin-right: -250vmax + $offset;
+	margin-right: -250vw + $offset;
 	border-left: 1px solid #bbb;
 }
 #partE {
@@ -160,17 +158,13 @@ nav {
 	right: 50%;
 	bottom: 50%;
 	width: 3.5em;
-	height: 200vw; //ie
-	// height: 200vmax;
-	margin-right: -50vw + $offset; //ie
-	// margin-right: -50vmax + $offset;
-	margin-bottom: -100vw; //ie
-	// margin-bottom: -100vmax;
+	height: 200vw;
+	margin-right: -50vw + $offset;
+	margin-bottom: -100vw;
 	li {
 		position: absolute;
 		right: 0;
-		bottom: 100vw; //ie
-		// bottom: 100vmax;
+		bottom: 100vw;
 		width: 4em;
 		text-align: right;
 	}
@@ -270,15 +264,13 @@ h1#toHome label:after {
 	#swWorks:checked ~ &,
 	#swContact:checked ~ & {
 		opacity: 1;
-		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
-		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2);
 	}
 }
 /* ----- Aboutが押されたとき ----- */
 #swAbout:checked ~ {
 	nav {
-		transform: translate3d(-14vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
-		// transform: translate3d(-14vmax, 0, 0) rotate3d(0,0,1,$rotate);
+		transform: translate3d(-14vw, 0, 0) rotate3d(0,0,1,$rotate);
 		li {
 			transform: translate3d(0, -23vh, 0);
 		}
@@ -294,15 +286,12 @@ h1#toHome label:after {
 		}
 	}
 	#partA {
-		transform: translate3d(-14vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
-		// transform: translate3d(-14vmax, 0, 0) rotate3d(0,0,1,$rotate);
-		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
-		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		transform: translate3d(-14vw, 0, 0) rotate3d(0,0,1,$rotate);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2);
 		border-right: 1px solid $baseBgColor;
 	}
 	#partB {
-		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
-		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1,$rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1,$rotate);
 		border-left: 1px solid $baseBgColor;
 	}
 	#partC {
@@ -313,8 +302,7 @@ h1#toHome label:after {
 /* ----- Worksが押されたとき ----- */
 #swWorks:checked ~ {
 	nav {
-		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1,$rotate); //ie
-		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1,$rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1,$rotate);
 		li {
 			transform: translate3d(3.5em, 35vh, 0) rotate3d(0,0,1,-$rotate);
 		}
@@ -327,19 +315,14 @@ h1#toHome label:after {
 		}
 	}
 	#partA {
-		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1, $rotate); //ie
-		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1, $rotate);
 		background-color: $BgColorA;
 		border-right: 1px solid $baseBgColor;
-		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2)inset;
-		// z-index: 999;
 	}
 	#partB {
-		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1, $rotate); //ie
-		// transform: translate3d(85vmax, 0, 0) rotate3d(0,0,1, $rotate);
+		transform: translate3d(85vw, 0, 0) rotate3d(0,0,1, $rotate);
 		border-left: 1px solid $baseBgColor;
-		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
-		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2);
 		z-index: 9999;
 	}
 	#partE {
@@ -354,8 +337,7 @@ h1#toHome label:after {
 	nav {
 		transform: rotate3d(0,0,1, -12deg);
 		li {
-			transform: translate3d(2.5em, 6vw, 0) rotate3d(0,0,1, 12deg); //ie
-			// transform: translate3d(2.5em, 6vmax, 0) rotate3d(0,0,1, 12deg);
+			transform: translate3d(2.5em, 6vw, 0) rotate3d(0,0,1, 12deg);
 		}
 		#navContact {
 			@include textGlow;
@@ -370,14 +352,12 @@ h1#toHome label:after {
 	}
 	#partA {
 		transform: rotate3d(0,0,1, -12deg);
-		box-shadow: 0 0 5vw rgba(0,0,0,0.2); //ie
-		// box-shadow: 0 0 5vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 5vw rgba(0,0,0,0.2);
 		border-right: 1px solid $baseBgColor;
 	}
 	#partB {
 		transform: rotate3d(0,0,1, 78deg);
-		box-shadow: 0 0 3vw rgba(0,0,0,0.2); //ie
-		// box-shadow: 0 0 3vmax rgba(0,0,0,0.2);
+		box-shadow: 0 0 3vw rgba(0,0,0,0.2);
 		border-left: 1px solid $baseBgColor;
 	}
 	#partD {
@@ -397,7 +377,7 @@ nav {
 		padding-right: 4px;
 	}
 }
-
+/* ------ h1-メインタイトル ----- */
 h1#toHome {
 	position: relative;
 	padding: 5px 0 0 10px;
@@ -422,12 +402,14 @@ h1#toHome {
 		opacity: 0;
 	}
 }
+
 #partC {
 	background-color: $BgColorC;
 }
 #partD {
 	background-color: $BgColorD;
 }
+
 section {
 	padding: 40px 7vw 50px;
 	overflow: hidden;
@@ -449,11 +431,13 @@ section {
 			margin-right: 0.2vw;
 			margin-bottom: -1 * ($hexWidth * 1.157 / 4) + 0.4;
 			margin-left: 0.2vw;
-
-			background-color: #f6f6f6;
-
+			background-color: #888888;
 			&:nth-of-type(6n+1) {
 				margin-left: ($hexWidth / 2 + 0.4);
+			}
+			h3 {
+				position: absolute;
+				top: 7.85%;
 			}
 		}
 	}

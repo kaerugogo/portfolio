@@ -52,7 +52,8 @@ require_once "util.inc.php";
 				zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 			</article>
 			<article>
-				
+				<h3>各項目のタイトル的なもの</h3>
+				<p>各項目の説明的なものをグダグダと書いてみたり...</p>
 			</article>
 			<article>
 				c
@@ -81,11 +82,11 @@ require_once "util.inc.php";
 
 		</section>
 	</div>
-	
+
 </div>
 <div id='outerIframe' class="">
 </div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/util.js" type="text/javascript"></script>	
+<script src="js/util.js" type="text/javascript"></script>
 </body>
 </html>

@@ -29,7 +29,6 @@ html {
 @media screen and (min-width: 768px) and (orientation: portrait), screen and (min-width: 1024px) and (orientation: landscape) {
   html {
     font-size: 15px; } }
-
 h1 {
   font-size: 1.4rem;
   color: #444; }
@@ -204,9 +203,7 @@ nav {
   transition-property: opacity, z-index; }
 
 /* ----- いずれかのmenuが押されたとき ----- */
-#swAbout:checked ~ h1#toHome label:after,
-#swWorks:checked ~ h1#toHome label:after,
-#swContact:checked ~ h1#toHome label:after {
+#swAbout:checked ~ h1#toHome label:after, #swWorks:checked ~ h1#toHome label:after, #swContact:checked ~ h1#toHome label:after {
   opacity: 1;
   box-shadow: 0 0 5vw rgba(0, 0, 0, 0.2); }
 
@@ -222,16 +219,13 @@ nav {
   #swAbout:checked ~ nav #navWorks,
   #swAbout:checked ~ nav #navContact {
     opacity: 0; }
-
 #swAbout:checked ~ #partA {
   transform: translate3d(-14vw, 0, 0) rotate3d(0, 0, 1, 13deg);
   box-shadow: 0 0 5vw rgba(0, 0, 0, 0.2);
   border-right: 1px solid #fff; }
-
 #swAbout:checked ~ #partB {
   transform: translate3d(85vw, 0, 0) rotate3d(0, 0, 1, 13deg);
   border-left: 1px solid #fff; }
-
 #swAbout:checked ~ #partC {
   z-index: 99;
   opacity: 1; }
@@ -246,18 +240,15 @@ nav {
   #swWorks:checked ~ nav #navAbout,
   #swWorks:checked ~ nav #navContact {
     opacity: 0; }
-
 #swWorks:checked ~ #partA {
   transform: translate3d(85vw, 0, 0) rotate3d(0, 0, 1, 13deg);
   background-color: #ff007f;
   border-right: 1px solid #fff; }
-
 #swWorks:checked ~ #partB {
   transform: translate3d(85vw, 0, 0) rotate3d(0, 0, 1, 13deg);
   border-left: 1px solid #fff;
   box-shadow: 0 0 5vw rgba(0, 0, 0, 0.2);
   z-index: 9999; }
-
 #swWorks:checked ~ #partE {
   transform: translate3d(100vw, 100vh, 0);
   height: 100vh;
@@ -276,17 +267,14 @@ nav {
   #swContact:checked ~ nav #navAbout,
   #swContact:checked ~ nav #navWorks {
     opacity: 0; }
-
 #swContact:checked ~ #partA {
   transform: rotate3d(0, 0, 1, -12deg);
   box-shadow: 0 0 5vw rgba(0, 0, 0, 0.2);
   border-right: 1px solid #fff; }
-
 #swContact:checked ~ #partB {
   transform: rotate3d(0, 0, 1, 78deg);
   box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
   border-left: 1px solid #fff; }
-
 #swContact:checked ~ #partD {
   z-index: 9;
   opacity: 1; }
@@ -337,7 +325,7 @@ section {
   #partD section {
     margin: 0 10%; }
   #partE section {
-    padding: 7vh 0 16.95437vw 0.2vw; }
+    padding: 7vh 0 16.954375vw 0.2vw; }
     #partE section article {
       position: relative;
       -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -346,7 +334,7 @@ section {
       width: 27.5vw;
       height: 31.8175vw;
       margin-right: 0.2vw;
-      margin-bottom: -7.55438vw;
+      margin-bottom: -7.554375vw;
       margin-left: 0.2vw;
       background-color: #888888; }
       #partE section article:nth-of-type(6n+1) {
@@ -358,11 +346,9 @@ section {
 @media all and (-ms-high-contrast: none) {
   #partE section article {
     margin-bottom: 0.3vw; } }
-
 @supports (-ms-ime-align: auto) {
   #partE section article {
     margin-bottom: 0.3vw; } }
-
 /* ---------- contactページのiframe表示 ---------- */
 #outerIframe {
   position: fixed;
@@ -466,3 +452,5 @@ section {
         display: inline-block;
         width: 45%;
         margin: 0 auto 15px 10px; }
+
+/*# sourceMappingURL=style.css.map */
