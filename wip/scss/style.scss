@@ -8,7 +8,6 @@ $baseColorDark: #161616;
 $baseBgColor: #fff;
 $BgColorA: #ff007f;
 $BgColorC: #0080ff;
-// $BgColorD: #60dd00;
 $BgColorD: #ffC000;
 $navColor: #444;
 $bgButton: #444;
@@ -220,6 +219,7 @@ nav {
 
 
 /* ----------- トランジション・アニメーション ---------- */
+h1#toHome,
 h1#toHome label::after,
 #wraper,
 nav,
@@ -231,31 +231,10 @@ nav li,
 #partE {
 	transition-duration: 0.3s;
 	transition-timing-function: ease-in;
-}
-h1#toHome label::after {
-	transition-property: opacity;
-}
-nav {
-	transition-property: transform;
-	li {
-		transition-property: opacity, transform;
-	}
-}
-#partA {
-	transition-property: transform, background-color, border-right, box-shadow;
-}
-#partB {
-	transition-property: transform, border-left, box-shadow;
-}
-#partC,
-#partD {
-	transition-property: z-index, opacity;
+	transition-property: transform, background-color, border, box-shadow, opacity, filter, z-index;
 }
 #partE {
-	transition-property: transform, height opacity, z-index;
-}
-#outerIframe {
-	transition-property: opacity, z-index;
+	transition-property: height, z-index;
 }
 
 /* ----- いずれかのmenuが押されたとき ----- */
@@ -332,6 +311,18 @@ h1#toHome label:after {
 		opacity: 1;
 	}
 }
+/* -- アイテムが押されたとき -- */
+/* -- iframe表示も参照 -- */
+#outerIframe.onItem ~ {
+	#toHome,
+	nav,
+	#partA,
+	#partB,
+	#partE {
+		filter: blur(0.5vw) brightness(0.6);
+	}
+}
+
 /* ----- Contactが押されたとき ----- */
 #swContact:checked ~ {
 	nav {
@@ -383,24 +374,28 @@ h1#toHome {
 	padding: 5px 0 0 10px;
 	z-index: 999999;
 	@include textGlow;
-	label::after {
-		content: "╳";
-		position: absolute;
-		display: block;
-		right: 0;
-		top: 0;
-		height: 22px;
-		width: 32px;
-		line-height:22px;
-		text-align: center;
-		font-family: $sansSerif;
-		font-weight: bold;
-		font-size: 20px;
-		color: $baseColor;
-		text-shadow: none;
-		background-color: $bgButton;
-		opacity: 0;
-	}
+}
+/* -- 閉じボタン -- */
+h1#toHome label::after,
+#outerIframe .closer {
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	height: 2.2rem;
+	width: 3.2rem;
+	line-height: 2.2rem;
+	text-align: center;
+	font-family: $sansSerif;
+	font-weight: bold;
+	font-size: 2rem;
+	color: $baseColor;
+	background-color: $bgButton;
+}
+h1#toHome label::after {
+	content: "╳";	
+	text-shadow: none;	
+	opacity: 0;
 }
 
 #partC {
@@ -420,24 +415,56 @@ section {
 		margin: 0 10%;
 	}
 	#partE & {
-		padding: 7vh 0 ($hexWidth * 1.157 / 4 + 9) 0.2vw;
+		padding: 7vh 0 ($hexWidth * 1.149 / 4 + 9) 0.2vw;
+		// ----- 六角形のグリッド ------
 		article {
 			position: relative;
+			box-sizing: border-box;
 			-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 			clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 			float: left;
 			width: $hexWidth;
-			height: $hexWidth * 1.157;
-			margin-right: 0.2vw;
-			margin-bottom: -1 * ($hexWidth * 1.157 / 4) + 0.4;
+			height: $hexWidth * 1.149;
+			margin-bottom: -1 * ($hexWidth * 1.149 / 4) + 0.4;
 			margin-left: 0.2vw;
-			background-color: #888888;
+			background-color: #aaa;
+			border: solid $BgColorA 0.1vw;
+			overflow: hidden;
 			&:nth-of-type(6n+1) {
 				margin-left: ($hexWidth / 2 + 0.4);
 			}
-			h3 {
+			h3,
+			a {
+				position: relative;
+				font-family: $sansSerif;
+				padding: 25% 0.5em 5%;
+				font-size: 1.9rem;
+				color: $baseColor;
+				text-decoration: none;
+				text-shadow: 0 0 0.5vw rgba(0,0,0,1);
+				z-index: 1;
+			}
+			p {
+				position: relative;
+				padding: 0 0.5em;
+				font-style: 1.5rem;
+				text-shadow: 0 0 0.5vw rgba(0,0,0,1);
+				z-index: 1;
+			}
+			figure {
 				position: absolute;
-				top: 7.85%;
+				@include fitSize();
+				z-index: 0;
+				img {
+					filter: brightness(50%);
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+				.vertical {
+					width: 100%;
+				}
 			}
 		}
 	}
@@ -445,37 +472,55 @@ section {
 // - ie
 @media all and (-ms-high-contrast: none) {
 	#partE section article {
-		margin-bottom: 0.3vw;
+		border-radius: 50% / 37%;
+		border-top: solid $BgColorA 0.2vw;
 	}
+
 }
 @supports (-ms-ime-align:auto) {
 	#partE section article {
-		margin-bottom: 0.3vw;
+		border-radius: 50% / 37%;
+		border-top: solid $BgColorA 0.2vw;
 	}
 }
 
 
-/* ---------- contactページのiframe表示 ---------- */
+/* ---------- iframe表示 ---------- */
 
 #outerIframe {
 	position: fixed;
 	@include fitSize();
   	z-index: 9;
+  	
   	&.on {
   		z-index: 99;
+  		#divIframe iframe {
+			@include fitSize();
+			height: 100vh;
+		   min-height: 100%;
+		   max-height: 100%;
+		   width: 100vw;
+		   min-width: 100%;
+		   max-width: 100%;
+  		}
+  	}
+  	&.onItem {
+  		z-index: 9999999;
+  		#divIframe iframe {
+  			position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			margin-top: -49vh;
+			margin-left: -49vh;
+			height: 98vh;
+			width: 98vh;
+  		}
   	}
   	#divIframe {
   		position: absolute;
   		@include fitSize();
   		iframe {
 		   display: block;
-		   @include fitSize();
-		   height: 100vh;
-		   min-height: 100%;
-		   max-height: 100%;
-		   width: 100vw;
-		   min-width: 100%;
-		   max-width: 100%;
 		   border: none;
 		   overflow: auto;
 		}

@@ -11,6 +11,9 @@ require_once "util.inc.php";
 </head>
 <body class="preload">
 <div id="wraper">
+	<div id='outerIframe' class="">
+		<span class="closer">×</span>
+	</div>
 	<input type="radio" name="swDisplay" id="swHome">
 	<input type="radio" name="swDisplay" id="swAbout">
 	<input type="radio" name="swDisplay" id="swWorks">
@@ -48,13 +51,19 @@ require_once "util.inc.php";
 	<div id="partE">
 		<section>
 			<h2>Works</h2>
-			<article style="color: green;">
+
+			<article>
+				<h3><a href="" class="toItem">各項目のタイトル的なもの</a></h3>
+				<p>各項目の説明的なものをグダグダと書いてみたり...</p>
+				<figure>
+					<img src="images/2016-09-21_155835.jpg" class="vertical">
+				</figure>
+			</article>
+
+			<article>
 				zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 			</article>
-			<article>
-				<h3>各項目のタイトル的なもの</h3>
-				<p>各項目の説明的なものをグダグダと書いてみたり...</p>
-			</article>
+			
 			<article>
 				c
 			</article>
@@ -84,8 +93,7 @@ require_once "util.inc.php";
 	</div>
 
 </div>
-<div id='outerIframe' class="">
-</div>
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/util.js" type="text/javascript"></script>
 </body>
