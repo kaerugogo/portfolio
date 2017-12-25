@@ -30,7 +30,18 @@ require_once "util.inc.php";
 	<div id="partB"></div>
 	<div id="partC">
 		<section>
-			<p>このページはポートフォリオページです。</p>
+			<p>このページは、塘博一のポートフォリオページです。</p>
+			<br>
+			<p>スキル一覧</p>
+			<ul>
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>PhotoShop</li>
+				<li>Illusutorator</li>
+				<li>PHP</li>
+				<li>jQuery</li>
+				<li>JavaScript</li>
+			</ul>
 		</section>
 	</div>
 	<div id="partD">
@@ -41,18 +52,15 @@ require_once "util.inc.php";
 		<section>
 
 			<article>
-				<h3><a href="" class="toItem">Photo Gallery</a></h3>
+				<h3><a href="works01.php" data-href="works01.php" class="toItem">Photo Gallery</a></h3>
 				<p>サンプルとして制作した "フォトギャラリー" サイト</p>
 				<figure>
 					<img src="images/gallery.png" class="vertical">
 				</figure>
-				<div>
-				<p><a href="http://zd3d10.sim.zdrv.com/photo_gallery/">Photo Gallery</a></p>
-				</div>
 			</article>
 
 			<article>
-				<h3><a href="" class="toItem">各項目のタイトル的なもの</a></h3>
+				<h3><a href="works02.php" class="toItem">各項目のタイトル的なもの</a></h3>
 				<p>各項目の説明的なものをグダグダと書いてみたり...</p>
 				<figure>
 					<img src="images/2016-09-21_155835.jpg" class="vertical">

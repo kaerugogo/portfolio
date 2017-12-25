@@ -18,11 +18,13 @@ $(document).ready(function() {
 
 	// Worksの各項目ページを表示
 	$(".toItem").click(function() {
+		var $href = $(this).attr("href");
 		$("#outerIframe").addClass("onItem");
 		$("#divIframe").remove();
 		$("#outerIframe").prepend(
-			"<div id='divIframe'><iframe src='works01.php'></iframe></div>"
+			"<div id='divIframe'><iframe src='" + $href + "'></iframe></div>"
 		);
+//		$("#divIframe iframe").attr("src", "$href");
 		return false;
 	});
 

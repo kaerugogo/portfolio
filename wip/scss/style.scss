@@ -324,7 +324,7 @@ h1#toHome label:after {
 	#partA,
 	#partB,
 	#partE {
-		filter: blur(0.5vw) brightness(0.6);
+		filter: blur(0.5vw) brightness(0.5);
 	}
 }
 
@@ -533,10 +533,50 @@ section {
   	}
 }
 
+/* ---------- Works Itemページ ---------- */
+#item {
+	box-sizing: border-box;
+	height:100vh;
+	// background-position: center center;
+	// background-size: cover;
+	padding: 4%;
+	// box-shadow: 0 0 1vw black;
+    // text-shadow: 0 0 0.5vw black;
+    background-color: $baseBgColor;
+    overflow: auto;
+    p,
+    h2 {
+    	position: relative;
+    	z-index: 1;
+    	color: $baseColorDark;
+    	margin-bottom: 1.5em;
+    }
+    #mainV {
+    	width: 48%;
+    	float: right;
+    	margin-left: 4%;
+    	margin-bottom: 4%;
+    	img {
+    		width: 100%;    	}
+    }
+    // &:after {
+    // 	content: "";
+    // 	display: block;
+    // 	clear: right;
+    // 	position: absolute;
+    // 	@include fitSize();
+    // 	background-size: cover;
+    // 	filter: blur(0.2vw) brightness(60%);
+    // 	z-index: 0;
+    // }
+}
+
+
+
 /* ---------- contactページ ---------- */
 #contact {
 	max-width: 800px;
-   margin: 0 auto;
+    margin: 0 auto;
 	overflow: auto;
 	color: $baseColorDark;
 	main {
