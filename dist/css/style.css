@@ -179,7 +179,7 @@ nav li,
 #partE {
   transition-duration: 0.3s;
   transition-timing-function: ease-in;
-  transition-property: transform, background-color, border, box-shadow, opacity, filter, z-index; }
+  transition-property: transform, background-color, border, box-shadow, text-shadow, opacity, filter, z-index; }
 
 #partE {
   transition-property: height, z-index; }
@@ -197,7 +197,8 @@ nav li,
   #swAbout:checked ~ nav li {
     transform: translate3d(0, -23vh, 0); }
   #swAbout:checked ~ nav #navAbout {
-    transform: translate3d(0, -23vh, 0) rotate3d(0, 0, 1, -13deg); }
+    transform: translate3d(0, -23vh, 0) scale(1.5, 1.5) rotate3d(0, 0, 1, -13deg);
+    text-shadow: 2px 0 1px #fff, -2px 0 1px #fff, 0 2px 1px #fff, 0 -2px 1px #fff, 2px 2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, -2px -2px 1px #fff; }
     #swAbout:checked ~ nav #navAbout label {
       cursor: default; }
   #swAbout:checked ~ nav #navWorks,
@@ -222,8 +223,11 @@ nav li,
   transform: translate3d(85vw, 0, 0) rotate3d(0, 0, 1, 13deg); }
   #swWorks:checked ~ nav li {
     transform: translate3d(3.5em, 35vh, 0) rotate3d(0, 0, 1, -13deg); }
-  #swWorks:checked ~ nav #navWorks label {
-    cursor: default; }
+  #swWorks:checked ~ nav #navWorks {
+    transform: translate3d(3.5em, 35vh, 0) scale(1.5, 1.5) rotate3d(0, 0, 1, -13deg);
+    text-shadow: 2px 0 1px #fff, -2px 0 1px #fff, 0 2px 1px #fff, 0 -2px 1px #fff, 2px 2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, -2px -2px 1px #fff; }
+    #swWorks:checked ~ nav #navWorks label {
+      cursor: default; }
   #swWorks:checked ~ nav #navAbout,
   #swWorks:checked ~ nav #navContact {
     opacity: 0; }
@@ -260,6 +264,7 @@ nav li,
   #swContact:checked ~ nav li {
     transform: translate3d(2.5em, 6vw, 0) rotate3d(0, 0, 1, 12deg); }
   #swContact:checked ~ nav #navContact {
+    transform: translate3d(2.5em, 6vw, 0) scale(1.5, 1.5) rotate3d(0, 0, 1, 12deg);
     text-shadow: 2px 0 1px #fff, -2px 0 1px #fff, 0 2px 1px #fff, 0 -2px 1px #fff, 2px 2px 1px #fff, 2px -2px 1px #fff, -2px 2px 1px #fff, -2px -2px 1px #fff; }
     #swContact:checked ~ nav #navContact label {
       cursor: default; }

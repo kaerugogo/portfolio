@@ -231,7 +231,7 @@ nav li,
 #partE {
 	transition-duration: 0.3s;
 	transition-timing-function: ease-in;
-	transition-property: transform, background-color, border, box-shadow, opacity, filter, z-index;
+	transition-property: transform, background-color, border, box-shadow, text-shadow, opacity, filter, z-index;
 }
 #partE {
 	transition-property: height, z-index;
@@ -254,7 +254,8 @@ h1#toHome label:after {
 			transform: translate3d(0, -23vh, 0);
 		}
 		#navAbout {
-			transform: translate3d(0, -23vh, 0) rotate3d(0,0,1,-$rotate);
+			transform: translate3d(0, -23vh, 0) scale(1.5, 1.5) rotate3d(0,0,1,-$rotate);
+			@include textGlow;
 			label {
 				cursor: default;
 			}
@@ -285,9 +286,13 @@ h1#toHome label:after {
 		li {
 			transform: translate3d(3.5em, 35vh, 0) rotate3d(0,0,1,-$rotate);
 		}
-		#navWorks label {
-			cursor: default;
-		} 
+		#navWorks {
+			transform: translate3d(3.5em, 35vh, 0) scale(1.5, 1.5) rotate3d(0,0,1,-$rotate);
+			@include textGlow;
+			label {
+				cursor: default;
+			}
+		}
 		#navAbout,
 		#navContact {
 			opacity: 0;
@@ -331,6 +336,7 @@ h1#toHome label:after {
 			transform: translate3d(2.5em, 6vw, 0) rotate3d(0,0,1, 12deg);
 		}
 		#navContact {
+			transform: translate3d(2.5em, 6vw, 0) scale(1.5, 1.5) rotate3d(0,0,1, 12deg);
 			@include textGlow;
 			label {
 				cursor: default;
