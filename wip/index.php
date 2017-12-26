@@ -33,14 +33,24 @@ require_once "util.inc.php";
 			<p>このページは、塘博一のポートフォリオページです。</p>
 			<br>
 			<p>スキル一覧</p>
+			<p>言語、ツール等</p>
 			<ul>
 				<li>HTML5</li>
 				<li>CSS3</li>
+				<li>PHP</li>
+				<li>JavaScript</li>
+				<li>MySQL</li>
+				<li>Emmet</li>
+				<li>Saas</li>
+				<li>jQuery</li>
+				<li>Bootstrap</li>
+				<li>phpMyAdmin</li>
+				<li>Sublime Text</li>
+				<li>Eclipse</li>
 				<li>PhotoShop</li>
 				<li>Illusutorator</li>
-				<li>PHP</li>
-				<li>jQuery</li>
-				<li>JavaScript</li>
+				<li>WordPress</li>
+
 			</ul>
 		</section>
 	</div>

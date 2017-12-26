@@ -49,6 +49,9 @@ p {
 label {
   cursor: pointer; }
 
+li {
+  font-size: 1.6rem; }
+
 input[name="swDisplay"] {
   position: fixed;
   z-index: 0;
@@ -123,6 +126,7 @@ nav {
     right: 0;
     bottom: 100vw;
     width: 4em;
+    font-size: 1.3rem;
     text-align: right; }
   nav #navAbout {
     margin-bottom: 20vh; }
@@ -333,7 +337,8 @@ section {
   padding: 40px 7vw 50px;
   overflow: hidden; }
   #partC section {
-    margin: 0 8%; }
+    margin: 0 8%;
+    padding-top: 10vh; }
   #partD section {
     margin: 0 10%; }
   #partE section {

@@ -72,7 +72,7 @@ nav {
   #swAbout:checked ~ nav li {
     transform: translate3d(-23vw, 0, 0); }
   #swAbout:checked ~ nav #navAbout {
-    transform: translate3d(-23vw, 0, 0) rotate3d(0, 0, 1, 12deg); }
+    transform: translate3d(-23vw, 0, 0) scale(1.5, 1.5) rotate3d(0, 0, 1, 12deg); }
 
 #swAbout:checked ~ #partA {
   transform: translate3d(0, -14vh, 0) rotate3d(0, 0, 1, -12deg);
@@ -90,6 +90,8 @@ nav {
   transform: translate3d(0, 85vh, 0) rotate3d(0, 0, 1, -12deg); }
   #swWorks:checked ~ nav li {
     transform: translate3d(35vw, 2em, 0) rotate3d(0, 0, 1, 12deg); }
+  #swWorks:checked ~ nav #navWorks {
+    transform: translate3d(35vw, 2em, 0) scale(1.5, 1.5) rotate3d(0, 0, 1, 12deg); }
 
 #swWorks:checked ~ #partA {
   transform: translate3d(0, 85vh, 0) rotate3d(0, 0, 1, -12deg);
@@ -110,6 +112,8 @@ nav {
   transform: rotate3d(0, 0, 1, 12deg); }
   #swContact:checked ~ nav li {
     transform: translate3d(4.6vh, 2.5em, 0) rotate3d(0, 0, 1, -12deg); }
+  #swContact:checked ~ nav #navContact {
+    transform: translate3d(4.6vh, 2.5em, 0) scale(1.5, 1.5) rotate3d(0, 0, 1, -12deg); }
 
 #swContact:checked ~ #partA {
   transform: rotate3d(0, 0, 1, 12deg);
@@ -156,3 +160,14 @@ nav li {
 @supports (-ms-ime-align: auto) {
   #partE section article {
     margin-bottom: 0.3vw; } }
+
+/* ---------- iframe表示 ---------- */
+#outerIframe.on #divIframe iframe {
+  height: 100vw;
+  width: 100vh; }
+
+#outerIframe.onItem #divIframe iframe {
+  margin-top: -49vw;
+  margin-left: -49vw;
+  height: 98vw;
+  width: 98vw; }

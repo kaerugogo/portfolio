@@ -91,6 +91,9 @@ p {
 label {
 	cursor: pointer;
 }
+li {
+	font-size: 1.6rem;
+}
 
 input[name="swDisplay"] {
 	position: fixed;
@@ -165,6 +168,7 @@ nav {
 		right: 0;
 		bottom: 100vw;
 		width: 4em;
+		font-size: 1.3rem;
 		text-align: right;
 	}
 	#navAbout {
@@ -416,6 +420,7 @@ section {
 	overflow: hidden;
 	#partC & {
 		margin: 0 8%;
+		padding-top: 10vh;
 	}
 	#partD & {
 		margin: 0 10%;
@@ -497,7 +502,6 @@ section {
 	position: fixed;
 	@include fitSize();
   	z-index: 9;
-  	
   	&.on {
   		z-index: 99;
   		#divIframe iframe {
