@@ -70,8 +70,8 @@ require_once "util.inc.php";
 			</article>
 
 			<article>
-				<h3><a href="works02.php" class="toItem">各項目のタイトル的なもの</a></h3>
-				<p>各項目の説明的なものをグダグダと書いてみたり...</p>
+				<h3><a href="works02.php" class="toItem">各項目のタイトル</a></h3>
+				<p>各項目の説明的なものを...</p>
 				<figure>
 					<img src="images/2016-09-21_155835.jpg" class="vertical">
 				</figure>
