@@ -91,6 +91,7 @@ nav {
 #partD,
 #partE {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   opacity: 0; }
 
 #partC,
@@ -436,11 +437,14 @@ section {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0; }
+    left: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; }
     #outerIframe #divIframe iframe {
       display: block;
       border: none;
-      overflow: auto; }
+      overflow: auto;
+      -webkit-overflow-scrolling: touch; }
 
 /* ---------- Works Itemページ ---------- */
 #item {
@@ -448,7 +452,8 @@ section {
   height: 100vh;
   padding: 4%;
   background-color: #fff;
-  overflow: auto; }
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; }
   #item p,
   #item h2 {
     position: relative;
@@ -468,6 +473,7 @@ section {
   max-width: 800px;
   margin: 0 auto;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   color: #161616; }
   #contact main {
     padding: 50px 20px 100px; }
